@@ -2,15 +2,19 @@ package authtransport
 
 import (
 	"github.com/gin-gonic/gin"
-	"my-edx-go/models"
-	"my-edx-go/modules/auth/dto"
+	"gorm.io/gorm"
+	authdto "my-edx-go/modules/auth/dto"
+	"my-edx-go/modules/auth/repository"
+
 	"my-edx-go/types"
 	"net/http"
 )
 
-func LoginTransport() func(ctx *gin.Context) {
+func LoginTransport(db *gorm.DB) func(ctx *gin.Context) {
 	return func(ctx *gin.Context) {
-		var json dto.LoginDTO
+
+		var json authdto.LoginDTO
+
 		if err := ctx.ShouldBind(&json); err != nil {
 			ctx.JSON(http.StatusBadRequest, types.HttpResponse{
 				Message: "Thất bại",
@@ -20,14 +24,11 @@ func LoginTransport() func(ctx *gin.Context) {
 			return
 		}
 
-		user := models.User{
-			Email:    "devpro2001@gmail.com",
-			Password: "java2001",
-		}
+		user_repository := repository.NewAuthRepository(db)
 
 		ctx.JSON(200, types.HttpResponse{
 			Message: "thành công",
-			Data:    user,
+			Data:    user_repository.FindById(),
 		})
 	}
 }
