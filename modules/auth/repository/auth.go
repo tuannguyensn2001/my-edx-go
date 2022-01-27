@@ -1,13 +1,13 @@
-package repository
+package authrepository
 
 import "gorm.io/gorm"
 
-type AuthRepository struct {
+type authRepository struct {
 	db *gorm.DB
 }
 
-func NewAuthRepository(db *gorm.DB) *AuthRepository {
-	return &AuthRepository{
+func NewAuthRepository(db *gorm.DB) *authRepository {
+	return &authRepository{
 		db: db,
 	}
 }

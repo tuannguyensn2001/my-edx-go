@@ -4,10 +4,11 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"my-edx-go/database"
-	authtransport "my-edx-go/modules/auth/transport"
+	"my-edx-go/routes"
 )
 
 func main() {
+
 	log.SetFormatter(&log.JSONFormatter{})
 
 	store, err := database.NewStore()
@@ -20,7 +21,9 @@ func main() {
 
 	v1 := router.Group("/api/v1")
 	{
-		v1.POST("/login", authtransport.LoginTransport(store.DB))
+		//v1.POST("/login", authtransport.LoginTransport(store.DB))
+		init := routes.InitRoute(v1, store)
+		init("auth")
 	}
 
 	err = router.Run(":5000")

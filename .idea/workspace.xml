@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a5a2e5a1-e7a7-4a16-9b03-dff1c5b1872c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/auth/dto/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/dto/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/repository/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/repository/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/repository/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/repository/get.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/auth/transport/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/transport/login.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +53,11 @@
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Go\my-edx-go\routes" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
