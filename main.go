@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"my-edx-go/database"
@@ -18,6 +19,8 @@ func main() {
 	}
 
 	router := gin.Default()
+
+	router.Use(cors.Default())
 
 	v1 := router.Group("/api/v1")
 	{
