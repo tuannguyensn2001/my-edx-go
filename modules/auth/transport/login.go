@@ -4,8 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	authdto "my-edx-go/modules/auth/dto"
-	"my-edx-go/modules/auth/repository"
-
+	authrepository "my-edx-go/modules/auth/repository"
 	"my-edx-go/types"
 	"net/http"
 )
@@ -24,11 +23,11 @@ func LoginTransport(db *gorm.DB) func(ctx *gin.Context) {
 			return
 		}
 
-		user_repository := repository.NewAuthRepository(db)
+		userRepository := authrepository.NewAuthRepository(db)
 
 		ctx.JSON(200, types.HttpResponse{
 			Message: "thành công",
-			Data:    user_repository.FindById(),
+			Data:    userRepository.FindById(),
 		})
 	}
 }
