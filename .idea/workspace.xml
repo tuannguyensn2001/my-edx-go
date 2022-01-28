@@ -9,7 +9,11 @@
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/dto/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/dto/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/dto/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/dto/register.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/repository/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/repository/create.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/auth/transport/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/transport/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/auth/transport/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/modules/auth/transport/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

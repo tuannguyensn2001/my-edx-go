@@ -2,6 +2,7 @@ package authtransport
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 	"gorm.io/gorm"
 	authdto "my-edx-go/modules/auth/dto"
 	authrepository "my-edx-go/modules/auth/repository"
@@ -17,6 +18,16 @@ func Register(db *gorm.DB) func(ctx *gin.Context) {
 			ctx.JSON(http.StatusBadRequest, types.HttpResponse{
 				Message: "Dữ liệu không hợp lệ",
 				Error:   err.Error(),
+			})
+			return
+		}
+
+		err_validate := validator.New().Struct(user)
+
+		if err_validate != nil {
+			ctx.JSON(http.StatusBadRequest, types.HttpResponse{
+				Message: "Dữ liệu không hợp lệ",
+				Error:   err_validate.Error(),
 			})
 			return
 		}
