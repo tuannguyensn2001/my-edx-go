@@ -3,16 +3,25 @@ package main
 import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"my-edx-go/database"
 	"my-edx-go/routes"
+	"os"
 )
 
 func main() {
 
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	log.SetFormatter(&log.JSONFormatter{})
 
-	store, err := database.NewStore()
+	dbstring := os.Getenv("DB_STRING")
+
+	store, err := database.NewStore(dbstring)
 
 	if err != nil {
 		log.Fatal("Database error")
