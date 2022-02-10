@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"my-edx-go/database"
+	"my-edx-go/middleware"
 	"my-edx-go/routes"
 	"os"
 )
@@ -29,7 +29,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.Use(cors.Default())
+	router.Use(middleware.CORSMiddleware())
 
 	v1 := router.Group("/api/v1")
 	{

@@ -1,14 +1,14 @@
 package jwt_provider
 
 import (
+	"errors"
 	"github.com/golang-jwt/jwt"
-	"log"
 	"my-edx-go/models"
 	"time"
 )
 
 type MyCustomClaims struct {
-	user models.User `json:"user"`
+	User models.User `json:"user"`
 	jwt.StandardClaims
 }
 
@@ -33,11 +33,25 @@ func GenerateToken(user models.User) (string, error) {
 
 }
 
-func ValidateToken(token string) {
-	res, _ := jwt.ParseWithClaims(token, &MyCustomClaims{}, func(token *jwt.Token) (interface{}, error) {
+func ValidateToken(token string) (*models.User, error) {
+	res, err := jwt.ParseWithClaims(token, &MyCustomClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte("AllYourBase"), nil
 	})
 
-	log.Fatal(res)
+	if err != nil {
+		return nil, err
+	}
+
+	if !res.Valid {
+		return nil, err
+	}
+
+	claims, ok := res.Claims.(*MyCustomClaims)
+
+	if !ok {
+		return nil, errors.New("Payload not valid")
+	}
+
+	return &claims.User, nil
 
 }
